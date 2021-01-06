@@ -17,6 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'username',
+        'avatar',
         'name',
         'email',
         'password',
@@ -52,11 +54,24 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)->latest();
     }
 
-    public function getAvatarAttribute(): string
+    public function getAvatarAttribute(string $value = ''): string
     {
-        return "https://i.pravatar.cc/150?u=" . $this->email;
+        //return asset($value ?? '/images/default-avatar.jpeg');
+        return $value ? asset($value) : 'https://i.pravatar.cc/200?u=' . $this->email;
+    }
+
+    public function setPasswordAttribute(string $value): void
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function path($append = ''): string
+    {
+        $path = route('profile', $this->username);
+
+        return $append ? "{$path}/{$append}" : $path;
     }
 }

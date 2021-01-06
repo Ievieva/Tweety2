@@ -26,7 +26,7 @@ trait Followable
         return $this->follows->contains($user);
     }
 
-    public function unfollow(User $user)
+    public function unfollow(User $user): int
     {
         return $this->follows()->detach($user);
 
@@ -34,10 +34,6 @@ trait Followable
 
     public function toggleFollow(User $user)
     {
-        if ($this->following($user)) {
-            return $this->unfollow($user);
-        }
-
-        return $this->follow($user);
+        $this->follows()->toggle($user);
     }
 }

@@ -32,11 +32,11 @@
         <main class="container mx-auto">
             <div class="d-flex justify-content-between">
                 @if (auth()->check())
-                    <div class="w-25 ml-2">
+                    <div class="w-25 mx-2">
                         @include('sidebar-links')
                     </div>
                 @endif
-                <div class="flex-grow-1 px-2 pr-4" style="max-width: 700px">
+                <div class="flex-grow-1 px-2 pr-4" style="max-width: 700px; min-width: 550px">
                     @yield('content')
                 </div>
                 @if (auth()->check())

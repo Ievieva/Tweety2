@@ -11,7 +11,12 @@
                 src="{{ auth()->user()->avatar}}"
                 alt="{{ auth()->user()->name }}">
 
-            <button type="submit" class="bg-info rounded-pill shadow py-1 px-3 text-white">Tweet-a-roo!</button>
+            <button
+                type="submit"
+                class="bg-info rounded-pill shadow py-1 px-3 text-white font-weight-bold"
+            >
+                Tweet-a-roo!
+            </button>
         </footer>
     </form>
 

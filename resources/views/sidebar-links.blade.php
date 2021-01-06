@@ -69,8 +69,12 @@
             </a>
         </h5>
     </li>
-    <li><a
-            class="font-weight-bold mb-4 d-block btn-link"
-            href="#"
-        >More</a></li>
+    <li>
+        <h5>
+            <a
+                class="font-weight-bold mb-4 d-block btn-link"
+                href="#"
+            >More</a>
+        </h5>
+    </li>
 </ul>

@@ -6,14 +6,14 @@
                 width="40"
                 height="40"
                 src="{{ $tweet->user->avatar }}"
-                alt="{{ $tweet->user->name }}"
+                alt="My avatar"
             >
         </a>
     </div>
     <div>
         <h5 class="mb-2 font-weight-bold">
             <a href="{{ route('profile', $tweet->user) }}" class="btn-link">
-                {{ $tweet->user->name }}
+                {{ $tweet->user->username }}
             </a>
         </h5>
         <p class="small">
