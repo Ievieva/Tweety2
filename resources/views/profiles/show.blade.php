@@ -14,14 +14,20 @@
                 alt="avatar">
         </div>
         <div class="d-flex justify-content-between align-items-center mb-lg-4">
-            <div>
-                <h4 class="font-weight-bolder mb-0">{{ $user->name }}</h4>
+            <div
+                class="font-weight-bolder mb-0"
+                style="max-width: 270px"
+            >
+                <h4>
+                    {{ $user->name }}
+                </h4>
                 <p class="small">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
             <div class="d-flex">
                 @can ('edit', $user)
 
-                    <a href="{{ $user->path('edit') }}" class="small rounded-pill border border-gray-400 py-1 px-3 text-black-100 mr-2">Edit
+                    <a href="{{ $user->path('edit') }}"
+                       class="small rounded-pill border border-gray-400 py-1 px-3 text-black-100 mr-2">Edit
                         profile</a>
                 @endcan
                 @if (current_user()->isNot($user))
@@ -44,6 +50,6 @@
     </header>
 
     @include('timeline', [
-    'tweets' => $user->tweets
+    'tweets' => $tweets
 ])
 @endsection

@@ -11,7 +11,7 @@ class TweetController extends Controller
     public function index(): Renderable
     {
         return view('tweets.index', [
-            'tweets' => auth()->user()->timeline()
+            'tweets' => current_user()->timeline()
         ]);
     }
 

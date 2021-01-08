@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tweet extends Model
 {
-    use HasFactory;
+    use HasFactory, Likable;
 
     protected $fillable = [
         'user_id',
@@ -18,4 +18,5 @@ class Tweet extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }

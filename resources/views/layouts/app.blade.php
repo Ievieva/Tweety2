@@ -21,26 +21,41 @@
 </head>
 <body>
 <div id="app">
-    <section class="px-lg-3 py-4">
-        <header class="container mx-auto pb-2">
+    <nav class="navbar navbar-expand-md navbar-light bg-white mb-5">
+        <div class="container">
             <h1>
                 <img src="/images/logo.svg" alt="Tweety">
             </h1>
-        </header>
-    </section>
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endguest
+            </ul>
+
+        </div>
+    </nav>
     <section class="px-lg-3">
         <main class="container mx-auto">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between mb-5">
                 @if (auth()->check())
-                    <div class="w-25 mx-2">
+                    <div class="w-25 mx-3">
                         @include('sidebar-links')
                     </div>
                 @endif
-                <div class="flex-grow-1 px-2 pr-4" style="max-width: 700px; min-width: 550px">
+                <div
+                    class="flex-grow-1 px-4"
+                    style="max-width: 700px; min-width: 500px">
                     @yield('content')
                 </div>
                 @if (auth()->check())
-                    <div class="w-25 bg-light rounded-xl p-4">
+                    <div class="w-25">
                         @include('friends-list')
                     </div>
                 @endif
@@ -48,6 +63,8 @@
         </main>
     </section>
 </div>
+
+<script src="http://unpkg.com/turbolinks"></script>
 </body>
 </html>
 

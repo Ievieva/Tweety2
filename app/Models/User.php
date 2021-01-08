@@ -49,18 +49,19 @@ class User extends Authenticatable
 
         return Tweet::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
-            ->latest()->get();
+            ->withLikes()
+            ->latest()->get(); //->paginate(50);
     }
 
-    public function tweets()
+    public function tweets(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Tweet::class)->latest();
     }
 
-    public function getAvatarAttribute(string $value = ''): string
+    public function getAvatarAttribute(?string $value = ''): string
     {
-        //return asset($value ?? '/images/default-avatar.jpeg');
-        return $value ? asset($value) : 'https://i.pravatar.cc/200?u=' . $this->email;
+        return $value ? '/storage/' . $value : 'https://i.pravatar.cc/200?u=' . $this->email;
+        //return $value ? asset($value) : '/images/default-avatar.jpeg';
     }
 
     public function setPasswordAttribute(string $value): void

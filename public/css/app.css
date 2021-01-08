@@ -7024,14 +7024,14 @@ button.bg-danger:focus {
 
 .bg-light {
     --tw-bg-opacity: 1;
-    background-color: rgba(219, 234, 254, var(--tw-bg-opacity)); !important;
+    background-color: rgba(226, 232, 240, var(--tw-bg-opacity)); !important;
 }
 
 a.bg-light:hover,
 a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-    background-color: #dae0e5 !important;
+    background-color: #e2e8f0 !important;
 }
 
 .bg-dark {
@@ -8319,6 +8319,10 @@ button.bg-dark:focus {
 
 .shadow-none {
     box-shadow: none !important;
+}
+
+.w-4 {
+    width: 4% !important;
 }
 
 .w-25 {

@@ -2,14 +2,14 @@
     <form action="/tweets" method="post">
         @csrf
         <textarea  placeholder="What's up doc?" name="body" class="w-100 form-control"></textarea>
-        <hr class="my-3">
-        <footer class="d-flex justify-content-between">
+        <hr class="my-2">
+        <footer class="d-flex justify-content-between align-items-center">
             <img
-                class="rounded-circle mr-2"
+                class="rounded-circle"
                 width="40"
                 height="40"
-                src="{{ auth()->user()->avatar}}"
-                alt="{{ auth()->user()->name }}">
+                src="{{ current_user()->avatar}}"
+                alt="{{ current_user()->name }}">
 
             <button
                 type="submit"

@@ -16,8 +16,9 @@
                 {{ $tweet->user->username }}
             </a>
         </h5>
-        <p class="small">
+        <p class="small mb-2">
             {{ $tweet->body }}
         </p>
+        <x-like-buttons :tweet="$tweet" />
     </div>
 </div>

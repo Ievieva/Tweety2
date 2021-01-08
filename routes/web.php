@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/tweets', 'TweetController@index')->name('home');
     Route::post('/tweets', 'TweetController@store');
 
+    Route::post('/tweets/{tweet}/like', 'TweetLikeController@store')->name('tweet.like');
+    Route::delete('/tweets/{tweet}/like', 'TweetLikeController@destroy')->name('tweet.dislike');
+
     Route::post('/profiles/{user:username}/follow', 'FollowsController@store');
     Route::get(
         '/profiles/{user:username}/edit',
@@ -37,8 +40,7 @@ Route::middleware('auth')->group(function () {
         'ProfilesController@update'
     )->middleware('can:edit,user');
 
-    Route::get('/explore', 'ExploreController@index');
+    Route::get('/explore', 'ExploreController');
 });
 
 Route::get('/profiles/{user:username}', 'ProfilesController@show')->name('profile');
-
