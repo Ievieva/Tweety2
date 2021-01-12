@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TweetController;
+use App\Http\Controllers\TweetsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,14 +20,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::resource('/tweets', 'TweetController');
+//Route::resource('/tweets', 'TweetsController');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/tweets', 'TweetController@index')->name('home');
-    Route::post('/tweets', 'TweetController@store');
+    Route::get('/tweets', 'TweetsController@index')->name('home');
+    Route::post('/tweets', 'TweetsController@store');
 
-    Route::post('/tweets/{tweet}/like', 'TweetLikeController@store')->name('tweet.like');
-    Route::delete('/tweets/{tweet}/like', 'TweetLikeController@destroy')->name('tweet.dislike');
+    Route::post('/tweets/{tweet}/like', 'TweetLikesController@store')->name('tweet.like');
+    Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy')->name('tweet.dislike');
 
     Route::post('/profiles/{user:username}/follow', 'FollowsController@store');
     Route::get(

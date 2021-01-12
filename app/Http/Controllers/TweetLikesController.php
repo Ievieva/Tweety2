@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tweet;
 
-class TweetLikeController extends Controller
+class TweetLikesController extends Controller
 {
     public function store(Tweet $tweet)
     {

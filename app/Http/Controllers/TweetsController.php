@@ -6,7 +6,7 @@ use App\Models\Tweet;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
-class TweetController extends Controller
+class TweetsController extends Controller
 {
     public function index(): Renderable
     {
